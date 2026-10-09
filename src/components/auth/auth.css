@@ -412,6 +412,46 @@
 }
 .auth-switch a:hover { text-decoration: underline; }
 
+/* OTP */
+.auth-otp {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.auth-otp-box {
+  width: 54px;
+  height: 58px;
+  min-width: 0;
+  flex: 1;
+  border: 1px solid var(--rt-border);
+  border-radius: 6px;
+  background: #fff;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--rt-text);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.auth-otp-box:focus {
+  outline: none;
+  border-color: var(--rt-primary);
+  box-shadow: 0 0 0 3px rgba(90, 133, 171, 0.18);
+}
+
+.auth-muted { color: var(--rt-muted); }
+
+.auth-link-btn {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: var(--rt-link);
+  cursor: pointer;
+}
+.auth-link-btn:hover { text-decoration: underline; }
+
+.auth-switch--tight { margin-top: 12px; }
+
 .auth-signup .auth-title { margin-bottom: 14px; }
 .auth-signup .auth-subtitle { margin-bottom: 32px; }
 

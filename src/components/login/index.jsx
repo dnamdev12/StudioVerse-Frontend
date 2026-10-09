@@ -1,21 +1,34 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import AuthLayout from "../auth/AuthLayout";
 import PhoneInput, { COUNTRIES } from "../auth/PhoneInput";
+import { loginUser } from "../../api";
 
 const Login = () => {
   const [country, setCountry] = useState("US");
   const [mobile, setMobile] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const navigate = useNavigate();
 
-  const isValid = mobile.length >= 7;
+  const isValid = mobile.length >= 7 && !submitting;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!isValid) return;
     const dial = COUNTRIES.find((c) => c.code === country).dial;
-    // TODO: call the backend to send a verification code to `${dial}${mobile}`.
-    toast.info(`Verification code will be sent to ${dial} ${mobile}`);
+    const fullMobile = `${dial}${mobile}`;
+
+    setSubmitting(true);
+    try {
+      const data = await loginUser({ mobile: fullMobile });
+      toast.success(data.message || "OTP sent");
+      navigate("/verify-otp", { state: { mobile: fullMobile } });
+    } catch (err) {
+      toast.error(err.message);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -42,7 +55,7 @@ const Login = () => {
           </div>
 
           <button type="submit" className="auth-submit" disabled={!isValid}>
-            Next
+            {submitting ? "Sending OTP..." : "Next"}
           </button>
         </form>
 

@@ -13,6 +13,12 @@ async function request(path, options = {}) {
 export const signupUser = (body) =>
   request('/auth/signup', { method: 'POST', body: JSON.stringify(body) });
 
+export const loginUser = (body) =>
+  request('/auth/login', { method: 'POST', body: JSON.stringify(body) });
+
+export const verifyOtp = (body) =>
+  request('/auth/verify-otp', { method: 'POST', body: JSON.stringify(body) });
+
 export const getHealth = () => request('/health');
 export const getUsers = () => request('/users');
 export const createUser = (body) =>
