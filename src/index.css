@@ -1,0 +1,4 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: "Poppins", system-ui, sans-serif; background: #fff; color: #111; }
+button, input, select { font: inherit; }
+.error { color: #dc2626; }
