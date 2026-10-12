@@ -1,0 +1,12 @@
+.logo {
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: #24466b;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.logo-accent {
+  color: #5a85ab;
+}

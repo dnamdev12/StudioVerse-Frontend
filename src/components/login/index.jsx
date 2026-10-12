@@ -34,7 +34,7 @@ const Login = () => {
   return (
     <AuthLayout initialSlide={1}>
       <div className="auth-login">
-        <h1 className="auth-title">Welcome to Reeltrak</h1>
+        <h1 className="auth-title">Welcome to StudioVerse</h1>
         <p className="auth-subtitle">
           Enter your mobile number and we will text you a verification code
         </p>

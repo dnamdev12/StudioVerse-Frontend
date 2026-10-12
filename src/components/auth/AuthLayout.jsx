@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import Logo from "../common/Logo";
 import "./auth.css";
 
 const img = (id) =>
@@ -79,9 +80,7 @@ const AuthLayout = ({ children, initialSlide = 0 }) => {
   return (
     <div className="auth">
       <header className="auth-header">
-        <Link to="/login" className="auth-logo" aria-label="ReelTrak home">
-          <span className="auth-logo-r">R</span>EELTRAK
-        </Link>
+        <Logo to="/login" />
         <nav className="auth-header-actions">
           <Link
             to="/signup"
@@ -160,7 +159,7 @@ const AuthLayout = ({ children, initialSlide = 0 }) => {
         <section className="auth-panel">
           <div className="auth-panel-inner">{children}</div>
           <p className="auth-copyright">
-            © {new Date().getFullYear()}, ReelTrak, Inc. or its affiliates
+            © {new Date().getFullYear()}, StudioVerse, Inc. or its affiliates
           </p>
         </section>
       </div>

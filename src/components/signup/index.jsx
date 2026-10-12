@@ -114,7 +114,7 @@ const Signup = () => {
               onChange={(e) => setAgreed(e.target.checked)}
             />
             <span>
-              By creating an account, you agree to ReelTrak{" "}
+              By creating an account, you agree to StudioVerse{" "}
               <a href="#">Terms &amp; Conditions</a> and <a href="#">Privacy Policy.</a>
             </span>
           </label>

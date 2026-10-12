@@ -1,23 +1,17 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import { clearSession, getUser } from "../../auth";
+import { getUser } from "../../auth";
 
 const Dashboard = () => {
   const user = getUser();
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    clearSession();
-    navigate("/login", { replace: true });
-  };
 
   return (
     <div>
-      <h1>Dashboard</h1>
-      {user && <p>Welcome, {user.firstName} {user.lastName}</p>}
-      <button type="button" onClick={handleLogout}>
-        Logout
-      </button>
+      <h1 className="app-page-title">Dashboard</h1>
+      {user && (
+        <p>
+          Welcome, {user.firstName} {user.lastName}
+        </p>
+      )}
     </div>
   );
 };
